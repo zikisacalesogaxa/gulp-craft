@@ -1,0 +1,119 @@
+
+
+.sidebar {
+    
+
+    //brand
+    .sidebar__brand {
+        @include flexbox();
+        @include flex-direction(column);
+        padding:30px 0px;
+        
+
+        img {
+            display:block;
+            width:100%;
+            max-width:250px;
+            height:auto;
+            margin-bottom:20px;
+        }
+    }
+    
+    //sidebar
+    .sidebar__nav {
+        @include flexbox();
+        @include flex-direction(column);
+        width:100%;
+        
+        
+    
+        .nav_list {
+    
+            .nav_list__list-item {
+    
+                .nav_list__list-item-label {
+                    color:$white;
+                    padding:8px 0;
+                    cursor: pointer;
+                    position: relative;
+                    padding-left:1rem;
+                    margin:0;
+                    @include flexbox();
+                    @include flex-direction(column);
+                    @include justify-content(center);
+                    &:before {
+                        content:"";
+                        display:block;
+                        width:2px;
+                        height:0%;
+                        background-color:$primary;
+                        position: absolute;
+                        left:0;
+                        
+                        transition: height 0.1s ease-in-out;
+
+                    }
+
+                    &:hover {
+                        &:before {
+                            height:100%;
+                        }
+                    }
+                    
+            
+                    &--dropdown {
+                        
+
+                        & + .sub_nav__list {
+                            max-height:1000px;
+                            transition: max-height 0.5s;
+                        }
+            
+                    }
+                    &--active {
+                        
+                        &:before {
+                            height:100%;
+                        }
+                        
+                    }
+                }
+    
+                .sub_nav__list {
+                    padding: 0 0 0 20px;
+                    max-height: 0px;
+                    height:auto;
+                    overflow: hidden;
+                    transition: max-height 0.5s;
+    
+                    
+            
+                    .sub_nav__list-item {
+                        padding:5px 0 5px 20px;
+                        &.active {
+                            .sub_nav__list-item-link {
+                                color:$grey-light;
+                            }
+                            
+                        }
+
+                        .sub_nav__list-item-link {
+                            color:$grey;
+                        }
+
+                        
+                    }
+            
+                    
+                }
+    
+            }
+        }
+    
+    
+    }
+
+}
+
+
+

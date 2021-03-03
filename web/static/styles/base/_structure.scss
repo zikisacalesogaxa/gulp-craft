@@ -1,0 +1,106 @@
+body {
+	height:100%;
+	position: relative;
+	background-color:$black;
+}
+html {
+	overflow-y: auto;
+	scroll-behavior: smooth;
+	height:100%;
+	background-color:$black;
+	
+}
+
+.site_wrapper {
+	@include flexbox();
+	@include flex-direction(column);
+	position: relative;
+	height:inherit;
+
+	&--black {
+		background-color:$black;
+	}
+	.main_container {
+	
+		width:100%;
+		max-width:$main_container_width;
+		margin:0 auto;
+	
+		&--medium {
+			max-width:$main_container_width--medium;
+		}
+		@include container-padding(1.2rem, 1.2rem);
+	
+		@include tablet {
+			@include container-padding(2.2rem, 2.2rem,);
+		}
+		@include desktop {
+			@include container-padding(2.4rem, 2.4rem,);
+		}
+	}
+	
+	
+	.guide_wrapper {
+		@include flexbox();
+		@include flex-direction(column);
+		position: relative;
+		@include tablet {
+			@include flex-direction(row);
+			@include justify-content(space-between);
+		}
+	
+		.sidebar {
+			@include flexbox();
+			@include flex-direction(column);
+			margin:0px;
+			width:100%;
+			height:auto;
+			@include tablet {
+				position: -webkit-sticky;
+				position: sticky;
+				top: 0;
+				align-self: flex-start;
+			}
+			
+		
+			@include tablet {
+				max-width:300px;
+				margin-right:10%;
+				padding:0;
+				
+
+			}
+		}
+		
+		.section_content {
+			@include flexbox();
+			@include flex-direction(column);
+			position: relative;
+			width:100%;
+			margin-left:auto;
+			align-self: flex-end;
+			@include tablet {
+				width:70%;
+			}
+
+			.section_content__panel {
+				padding-bottom:2rem;
+
+				.section__title {
+					padding-top:2rem;
+					padding-bottom:2rem;
+					margin-bottom:0px;
+					border-top:1px solid $grey;
+
+					@include tablet {
+						padding-top:3rem;
+						padding-bottom:3rem;
+					}
+
+				}
+			}
+		}
+		
+	}
+
+}
